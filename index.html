@@ -3,35 +3,481 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebsiteUsingSpline</title>
+    <title>Ujjwal Singh | JustUjjwalGit</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
 </head>
 <body>
-    <img class="image-gradient" src="gradient.png">
-    
+
+    <!-- Background layers -->
+    <div class="noise-overlay"></div>
+    <canvas id="particles-canvas" aria-hidden="true"></canvas>
+    <div class="mouse-glow" id="mouseGlow" aria-hidden="true"></div>
+
+    <img class="image-gradient" src="gradient.png" alt="">
     <div class="layer-blur"></div>
 
-    <header>
-        <div class="logo">MyLogo</div>
-        <div class="center">Welcome My Site</div>
-        <button class="signin-btn">Sign In</button>
-     </header>
-
-     <section class="hero">
-        <button class="introducing-btn">INTRODUCTION</button>
-        <h1 class="hero-heading">Email for Developers</h1>
-        <p class="hero-subtext">
-          The best way to reach humans instead of spam folders.<br />
-          Deliver transactional and marketing emails at scale.
-        </p>
-        <div class="hero-buttons">
-          <button class="doc-btn">Documentation &gt;</button>
-          <button class="getstarted-btn">Get Started &gt;</button>
-
-          <spline-viewer class="robot" url="https://prod.spline.design/JaseFaNrMAYOCBJC/scene.splinecode"></spline-viewer>
-          
+    <!-- Scroll progress indicator -->
+    <div class="scroll-progress" id="scrollProgress">
+        <div class="scroll-track"></div>
+        <div class="scroll-ship" id="scrollShip">
+            <svg width="12" height="18" viewBox="0 0 12 18" fill="none">
+                <path d="M6 0 L12 14 L10 18 L6 14 L2 18 L0 14 Z" fill="#a855f7" opacity="0.9"/>
+                <circle cx="6" cy="7" r="1.5" fill="#0a0a0a"/>
+                <path d="M6 10 L8 14 L6 13.5 L4 14 Z" fill="#a855f7" opacity="0.6"/>
+            </svg>
         </div>
-        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.96/build/spline-viewer.js"></script>
+    </div>
 
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="logo">&gt; JustUjjwalGit</div>
+        <nav class="desktop-nav">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="introducing-btn">
+                <span class="dot-pulse"></span>
+                Student Developer
+            </div>
+            <h1 class="hero-heading">Ujjwal Singh</h1>
+            <p class="hero-subtext">
+                Building things, breaking things, and learning along the way.<br />
+                Class 12 student who spends way too much time on side projects.
+            </p>
+            <div class="hero-buttons">
+                <a href="#projects" class="doc-btn">View Projects &gt;</a>
+                <a href="#contact" class="getstarted-btn">Get in Touch &gt;</a>
+            </div>
+        </div>
+
+        <spline-viewer
+            class="robot"
+            url="https://prod.spline.design/JaseFaNrMAYOCBJC/scene.splinecode"
+            hide-splash
+        ></spline-viewer>
+    </section>
+
+    <!-- Spline viewer loader -->
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.96/build/spline-viewer.js"></script>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="section" id="about">
+        <div class="section-container">
+            <div class="section-label reveal">About</div>
+            <div class="about-layout">
+                <div class="about-text reveal">
+                    <h2 class="section-title">Hey, I'm Ujjwal 👋</h2>
+                    <p>
+                        I'm a student developer who enjoys learning by building projects rather than following tutorials.
+                        I spend most of my time experimenting with ideas, improving old projects, and figuring out
+                        how things work under the hood.
+                    </p>
+                    <p>
+                        I started with simple HTML and CSS projects and slowly moved toward JavaScript applications,
+                        APIs, React, real-time systems, and multiplayer experiences.
+                    </p>
+                    <p>
+                        I enjoy making interfaces feel polished and making old projects look far better than
+                        they have any right to.
+                    </p>
+                    <div class="pronouns-badge">he / him <span class="sep">·</span> India</div>
+                </div>
+                <div class="about-interests reveal">
+                    <h3>Interests</h3>
+                    <div class="tags">
+                        <span class="tag">Web Development</span>
+                        <span class="tag">Full Stack</span>
+                        <span class="tag">UI/UX Design</span>
+                        <span class="tag">Real-time Apps</span>
+                        <span class="tag">AI Tools</span>
+                        <span class="tag">Open Source</span>
+                        <span class="tag">Linux</span>
+                        <span class="tag">Backend Systems</span>
+                        <span class="tag">APIs</span>
+                        <span class="tag">Developer Tooling</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TECH STACK ===== -->
+    <section class="section" id="tech">
+        <div class="section-container">
+            <div class="section-label reveal">Tech Stack</div>
+            <h2 class="section-title reveal">Tools I Use</h2>
+
+            <div class="tech-grid">
+                <div class="tech-category reveal">
+                    <h4>Frontend</h4>
+                    <div class="tech-items">
+                        <span class="tech-item">HTML</span>
+                        <span class="tech-item">CSS</span>
+                        <span class="tech-item">JavaScript</span>
+                        <span class="tech-item">React</span>
+                        <span class="tech-item">Tailwind CSS</span>
+                    </div>
+                </div>
+                <div class="tech-category reveal">
+                    <h4>Languages</h4>
+                    <div class="tech-items">
+                        <span class="tech-item">JavaScript</span>
+                        <span class="tech-item">TypeScript</span>
+                        <span class="tech-item">Java</span>
+                    </div>
+                </div>
+                <div class="tech-category reveal">
+                    <h4>Backend</h4>
+                    <div class="tech-items">
+                        <span class="tech-item">Node.js</span>
+                        <span class="tech-item">Express</span>
+                        <span class="tech-item">Socket.io</span>
+                    </div>
+                </div>
+                <div class="tech-category reveal">
+                    <h4>Tools</h4>
+                    <div class="tech-items">
+                        <span class="tech-item">Git</span>
+                        <span class="tech-item">GitHub</span>
+                        <span class="tech-item">VS Code</span>
+                        <span class="tech-item">Linux</span>
+                        <span class="tech-item">Arch Linux</span>
+                        <span class="tech-item">Docker</span>
+                    </div>
+                </div>
+                <div class="tech-category reveal">
+                    <h4>Currently Learning</h4>
+                    <div class="tech-items">
+                        <span class="tech-item learning">Three.js</span>
+                        <span class="tech-item learning">React Native</span>
+                        <span class="tech-item learning">System Design</span>
+                        <span class="tech-item learning">Databases</span>
+                        <span class="tech-item learning">AI Integrations</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ARCH LINUX ===== -->
+    <section class="section section-arch" id="arch">
+        <div class="section-container">
+            <div class="arch-card reveal">
+                <div class="terminal-window interactive-terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="terminal-title">ujjwal@archlinux: ~</span>
+                    </div>
+                    <div class="terminal-body" id="terminalBody">
+                        <div class="terminal-line">
+                            <span class="prompt">ujjwal@archlinux</span>:<span class="path">~</span>$ <span class="cmd">echo "I use Arch Linux btw."</span>
+                        </div>
+                        <div class="terminal-line output">
+                            I use Arch Linux <span class="glitch-text">btw</span>.
+                        </div>
+                        <div id="terminalOutput"></div>
+                        <div class="terminal-input-line">
+                            <span class="prompt">ujjwal@archlinux</span>:<span class="path">~</span>$ <input type="text" class="terminal-input" id="terminalInput" placeholder="type a command..." spellcheck="false" autocomplete="off" autofocus>
+                        </div>
+                    </div>
+                </div>
+                <div class="arch-description reveal">
+                    <p>Full Linux desktop experience with tiling window managers, terminal-first workflows, and way too much time spent on dotfiles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section class="section" id="projects">
+        <div class="section-container">
+            <div class="section-label reveal">Projects</div>
+            <h2 class="section-title reveal">Things I've Built</h2>
+
+            <div class="projects-section-label reveal">Featured</div>
+
+            <div class="projects-grid">
+
+                <!-- CubeRanked (Featured #1) -->
+                <div class="project-card featured reveal">
+                    <div class="project-preview">
+                        <div class="browser-bar">
+                            <div class="browser-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="browser-url">cuberanked.app</div>
+                        </div>
+                        <div class="preview-content">
+                            <img src="assets/cuberanked-preview.png" alt="CubeRanked screenshot" class="project-screenshot" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">CubeRanked</h3>
+                        <p class="project-desc">
+                            Competitive Rubik's Cube racing platform inspired by MCSR Ranked.
+                            Features matchmaking, bot races, real-time multiplayer, shared scrambles,
+                            rankings, and practice mode.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">Tailwind</span>
+                            <span class="project-tag">Socket.io</span>
+                            <span class="project-tag">Three.js</span>
+                            <span class="project-tag">TypeScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MCSR Ranked Website (Featured #2) -->
+                <div class="project-card featured reveal">
+                    <div class="project-preview">
+                        <div class="browser-bar">
+                            <div class="browser-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="browser-url">mcsr-ranked</div>
+                        </div>
+                        <div class="preview-content">
+                            <img src="assets/mcsr-preview.png" alt="MCSR Ranked Website screenshot" class="project-screenshot" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">MCSR Ranked Website</h3>
+                        <p class="project-desc">
+                            Next.js frontend for MCSR Ranked leaderboards, player profiles,
+                            matches, and community statistics.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Next.js</span>
+                            <span class="project-tag">TypeScript</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="projects-section-label reveal">Other Projects</div>
+
+            <div class="projects-grid secondary">
+
+                <!-- Weathermap -->
+                <div class="project-card reveal">
+                    <div class="project-preview">
+                        <div class="browser-bar">
+                            <div class="browser-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="browser-url">weathermap</div>
+                        </div>
+                        <div class="preview-content">
+                            <img src="assets/weathermap-preview.png" alt="Weathermap screenshot" class="project-screenshot" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Weathermap</h3>
+                        <p class="project-desc">
+                            Modern weather dashboard with forecasts, geolocation, maps,
+                            air quality data, dark/light mode, and subtle animations.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML</span>
+                            <span class="project-tag">CSS</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Planet News -->
+                <div class="project-card reveal">
+                    <div class="project-preview">
+                        <div class="browser-bar">
+                            <div class="browser-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="browser-url">planet-news</div>
+                        </div>
+                        <div class="preview-content">
+                            <img src="assets/planetnews-preview.png" alt="Planet News screenshot" class="project-screenshot" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Planet News</h3>
+                        <p class="project-desc">
+                            Minimal news application focused on clean UI and simple user experience.
+                            Features categories, theme switching, responsive layout, and loading states.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML</span>
+                            <span class="project-tag">CSS</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kashdog -->
+                <div class="project-card reveal">
+                    <div class="project-preview">
+                        <div class="browser-bar">
+                            <div class="browser-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="browser-url">kashdog</div>
+                        </div>
+                        <div class="preview-content">
+                            <img src="assets/kashdog-preview.png" alt="Kashdog screenshot" class="project-screenshot" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Kashdog</h3>
+                        <p class="project-desc">
+                            A TypeScript project. Simple and minimal.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">TypeScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AllJavaCodes -->
+                <div class="project-card reveal">
+                    <div class="project-preview">
+                        <div class="browser-bar">
+                            <div class="browser-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="browser-url">AllJavaCodes</div>
+                        </div>
+                        <div class="preview-content">
+                            <img src="assets/alljavacodes-preview.png" alt="AllJavaCodes screenshot" class="project-screenshot" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">AllJavaCodes</h3>
+                        <p class="project-desc">
+                            Repository containing many of my Java programs and practice code
+                            from my learning journey.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Java</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TIMELINE ===== -->
+    <section class="section" id="timeline">
+        <div class="section-container">
+            <div class="section-label reveal">Timeline</div>
+            <h2 class="section-title reveal">My Journey</h2>
+
+            <div class="timeline">
+                <div class="timeline-line"></div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2023</span>
+                        <h4>Started Learning</h4>
+                        <p>Began web development journey with HTML and CSS. Built first simple websites.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2024</span>
+                        <h4>First Real Projects</h4>
+                        <p>Built my first real websites and JavaScript applications. Started experimenting with APIs.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2025</span>
+                        <h4>Leveling Up</h4>
+                        <p>Started building larger applications. Deep dive into backend systems and React.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2026</span>
+                        <h4>Real-time & Multiplayer</h4>
+                        <p>Exploring real-time systems, multiplayer experiences, and backend architecture. Building CubeRanked as my main project.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PERSONAL ===== -->
+    <section class="section section-personal" id="personal">
+        <div class="section-container">
+            <div class="personal-layout reveal">
+                <div class="section-label">Beyond the Code</div>
+                <div class="personal-content">
+                    <p>
+                        When I'm not building things on a screen, I'm usually staying active —
+                        calisthenics, fitness, walking, or anything that gets me moving.
+                        I try to keep a good balance between screen time and the real world.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER / CONTACT ===== -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-links reveal">
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <a href="https://github.com/JustUjjwalGit" target="_blank" rel="noopener" class="footer-link">GitHub</a>
+                    <a href="https://in.pinterest.com/UjjwalZee/_pins/" target="_blank" rel="noopener" class="footer-link">Pinterest</a>
+                    <a href="mailto:uj643570ujjwal@gmail.com" class="footer-link">Email</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Location</h4>
+                    <span class="footer-text">India</span>
+                </div>
+                <div class="footer-col">
+                    <h4>Username</h4>
+                    <span class="footer-text footer-username">Ujjwal Zee</span>
+                </div>
+            </div>
+            <div class="footer-bottom reveal">
+                <p>Built with curiosity &nbsp;·&nbsp; &gt; Ujjwal Singh</p>
+                <p class="footer-subtle">probably tweaking something right now</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
