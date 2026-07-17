@@ -2,7 +2,7 @@
 
 A personal portfolio built around a Spline 3D scene — black background, futuristic robot, student developer energy.
 
-Built from the [SplineTest](https://github.com/UjjwalOnGit/SplineTest) experiment.
+Built from the [Portfolio](https://github.com/JustUjjwalGit/Portfolio) experiment.
 
 ## Sections
 
