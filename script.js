@@ -1,4 +1,36 @@
 /* ============================================
+   SPLINE LOGO REMOVAL
+   ============================================ */
+(function hideSplineLogo() {
+    const viewer = document.querySelector('spline-viewer');
+    if (!viewer) return;
+
+    const hideLogo = () => {
+        const shadowRoot = viewer.shadowRoot;
+        const logo = shadowRoot?.querySelector('#logo');
+        if (!logo) return false;
+
+        if (!shadowRoot.querySelector('#portfolio-spline-logo-style')) {
+            const style = document.createElement('style');
+            style.id = 'portfolio-spline-logo-style';
+            style.textContent = '#logo { display: none !important; visibility: hidden !important; }';
+            shadowRoot.appendChild(style);
+        }
+
+        logo.setAttribute('aria-hidden', 'true');
+        return true;
+    };
+
+    customElements.whenDefined('spline-viewer').then(() => {
+        let attempts = 0;
+        const logoCheck = window.setInterval(() => {
+            attempts += 1;
+            if (hideLogo() || attempts === 100) window.clearInterval(logoCheck);
+        }, 100);
+    });
+})();
+
+/* ============================================
    PARTICLE SYSTEM
    ============================================ */
 (function initParticles() {
@@ -273,8 +305,6 @@
         }
     });
 
-    // Keep focus on input
-    terminalInput.focus();
 })();
 
 /* ============================================
@@ -726,19 +756,30 @@ function startTetris(container, terminalBody) {
 
     if (!btn || !menu) return;
 
+    const closeMenu = () => {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-expanded', 'false');
+        menu.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
     btn.addEventListener('click', () => {
-        btn.classList.toggle('active');
-        menu.classList.toggle('active');
-        document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        const isOpen = menu.classList.toggle('active');
+        btn.classList.toggle('active', isOpen);
+        btn.setAttribute('aria-expanded', String(isOpen));
+        document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 
-    // Close on link click
     const links = menu.querySelectorAll('a');
     for (const link of links) {
-        link.addEventListener('click', () => {
-            btn.classList.remove('active');
-            menu.classList.remove('active');
-            document.body.style.overflow = '';
-        });
+        link.addEventListener('click', closeMenu);
     }
+
+    menu.addEventListener('click', (event) => {
+        if (event.target === menu) closeMenu();
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && menu.classList.contains('active')) closeMenu();
+    });
 })();

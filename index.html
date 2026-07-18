@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+        window.scrollTo(0, 0);
+    </script>
     <title>Ujjwal Singh | JustUjjwalGit</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech&family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -38,7 +42,7 @@
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
         </nav>
-        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu" aria-expanded="false">
             <span></span><span></span><span></span>
         </button>
         <div class="mobile-menu" id="mobileMenu">
@@ -55,7 +59,7 @@
                 <span class="dot-pulse"></span>
                 Student Developer
             </div>
-            <h1 class="hero-heading">Ujjwal Singh</h1>
+            <h1 class="hero-heading"><span class="hero-heading-text">Ujjwal Singh</span></h1>
             <p class="hero-subtext">
                 Building things, breaking things, and learning along the way.<br />
                 Class 12 student who spends way too much time on side projects.
@@ -197,7 +201,7 @@
                         </div>
                         <div id="terminalOutput"></div>
                         <div class="terminal-input-line">
-                            <span class="prompt">ujjwal@archlinux</span>:<span class="path">~</span>$ <input type="text" class="terminal-input" id="terminalInput" placeholder="type a command..." spellcheck="false" autocomplete="off" autofocus>
+                            <span class="prompt">ujjwal@archlinux</span>:<span class="path">~</span>$ <input type="text" class="terminal-input" id="terminalInput" placeholder="type a command..." spellcheck="false" autocomplete="off">
                         </div>
                     </div>
                 </div>

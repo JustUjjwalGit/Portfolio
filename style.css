@@ -314,6 +314,25 @@ header {
     background-clip: text;
 }
 
+.hero-heading-text {
+    display: inline-block;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 0.08em solid currentColor;
+    animation: hero-type 1.8s steps(12, end) forwards, hero-cursor 0.6s step-end 3;
+}
+
+@keyframes hero-type {
+    0% { width: 0; }
+    99% { border-right-color: currentColor; }
+    100% { width: 12ch; border-right-color: transparent; }
+}
+
+@keyframes hero-cursor {
+    50% { border-right-color: transparent; }
+}
+
 .hero-subtext {
     font-size: 1.2rem;
     color: var(--text-muted);
@@ -369,7 +388,8 @@ header {
     z-index: -2;
     flex: 1 1 55%;
     min-width: 0;
-    height: 700px;
+    height: 800px;
+    left: 25px;
     pointer-events: none;
     animation: float-robot 6s ease-in-out infinite;
 }
@@ -1089,19 +1109,71 @@ footer {
         display: flex;
     }
 
+    .mobile-menu {
+        display: flex;
+        padding: 5rem 1.5rem 2rem;
+        background: rgba(3, 3, 6, 0.58);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        gap: 2.75rem;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-12px);
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+    }
+
+    .mobile-menu.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .mobile-menu a {
+        font-size: 1.65rem;
+        letter-spacing: 0.04em;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: color var(--transition), opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .mobile-menu.active a {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .mobile-menu.active a:nth-child(1) { transition-delay: 0.06s; }
+    .mobile-menu.active a:nth-child(2) { transition-delay: 0.1s; }
+    .mobile-menu.active a:nth-child(3) { transition-delay: 0.14s; }
+
+    .mobile-menu a:hover,
+    .mobile-menu a:active {
+        color: var(--purple-light);
+        transform: translateY(-2px) scale(1.03);
+    }
+
     .hero {
         flex-direction: column;
-        padding: 0 1.2rem;
-        padding-top: 5rem;
+        padding: 1.5rem 1.25rem 1.5rem;
         margin: 0 auto;
-        min-height: 90vh;
+        min-height: 0;
         align-items: center;
         text-align: center;
-        gap: 2rem;
+        gap: 1.5rem;
     }
 
     .hero-content {
+        width: 100%;
+        max-width: 340px;
         align-items: center;
+        gap: 0.75rem;
+    }
+
+    .introducing-btn {
+        padding: 0.3rem 0.75rem;
+        font-size: 0.7rem;
     }
 
     .hero-heading {
@@ -1109,19 +1181,47 @@ footer {
     }
 
     .hero-subtext {
-        font-size: 1rem;
+        max-width: 320px;
+        font-size: 0.92rem;
+        line-height: 1.5;
+    }
+
+    .hero-subtext br {
+        display: none;
     }
 
     .hero-buttons {
+        width: min(100%, 260px);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+        margin-top: 0.25rem;
+    }
+
+    .doc-btn,
+    .getstarted-btn {
+        display: inline-flex;
+        align-items: center;
         justify-content: center;
+        width: 100%;
+        height: 42px;
+        padding: 0.55rem 1rem;
+        font-size: 0.86rem;
     }
 
     .robot {
         flex: none;
-        width: 300px;
-        height: 300px;
-        margin: 0 auto;
+        width: clamp(260px, 76vw, 300px);
+        height: clamp(260px, 76vw, 300px);
+        margin: -1.5rem auto -1rem;
+        top: 6px;
+        left: 0;
+        overflow: visible !important;
         animation: float-robot 6s ease-in-out infinite;
+    }
+
+    .scroll-progress {
+        display: none;
     }
 
     .section {
@@ -1170,23 +1270,7 @@ footer {
 /* Small mobile */
 @media (max-width: 480px) {
     .hero-heading {
-        font-size: 1.6rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .doc-btn,
-    .getstarted-btn {
-        width: 100%;
-        text-align: center;
-    }
-
-    .robot {
-        width: 220px;
-        height: 220px;
+        font-size: 1.8rem;
     }
 
     .terminal-window {
@@ -1246,6 +1330,12 @@ footer {
     transform: translateX(-50%);
     transition: top 0.05s linear;
     filter: drop-shadow(0 0 6px rgba(139, 92, 246, 0.5));
+}
+
+@media (max-width: 768px) {
+    .scroll-progress {
+        display: none;
+    }
 }
 
 /* ============================================
