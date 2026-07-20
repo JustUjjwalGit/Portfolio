@@ -135,7 +135,7 @@ header {
 }
 
 .logo {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: bold;
     color: var(--purple-light);
     letter-spacing: 0.02em;
@@ -334,9 +334,9 @@ header {
 }
 
 .hero-subtext {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: var(--text-muted);
-    max-width: 500px;
+    max-width: 600px;
     line-height: 1.75;
     margin: 0;
 }
@@ -479,14 +479,14 @@ spline-viewer::part(controls) {
 .about-text p {
     color: var(--text-muted);
     margin-bottom: 1rem;
-    font-size: 1rem;
+    font-size: 1.3rem;
     line-height: 1.7;
 }
 
 .pronouns-badge {
     display: inline-block;
     margin-top: 0.5rem;
-    font-size: 0.85rem;
+    font-size: 1rem;
     color: var(--text-dim);
     border: 1px solid var(--border);
     padding: 0.3rem 0.8rem;
@@ -499,7 +499,7 @@ spline-viewer::part(controls) {
 }
 
 .about-interests h3 {
-    font-size: 1rem;
+    font-size: 1.4rem;
     color: var(--text);
     margin-bottom: 1rem;
 }
@@ -511,7 +511,7 @@ spline-viewer::part(controls) {
 }
 
 .tag {
-    font-size: 0.8rem;
+    font-size: 1rem;
     padding: 0.35rem 0.75rem;
     border-radius: 999px;
     border: 1px solid var(--border);
@@ -536,7 +536,7 @@ spline-viewer::part(controls) {
 }
 
 .tech-category h4 {
-    font-size: 0.8rem;
+    font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--text-dim);
@@ -550,7 +550,7 @@ spline-viewer::part(controls) {
 }
 
 .tech-item {
-    font-size: 0.85rem;
+    font-size: 1rem;
     padding: 0.3rem 0.7rem;
     border-radius: var(--radius-sm);
     background: var(--surface);
@@ -595,7 +595,7 @@ spline-viewer::part(controls) {
     overflow: hidden;
     background: #0d0d0d;
     font-family: "Share Tech Mono", monospace;
-    font-size: 0.82rem;
+    font-size: 1.3rem;
     transition: border-color var(--transition);
 }
 
@@ -629,7 +629,7 @@ spline-viewer::part(controls) {
 
 .terminal-title {
     color: var(--text-dim);
-    font-size: 0.75rem;
+    font-size: 1.1rem;
     margin-left: 0.3rem;
 }
 
@@ -691,7 +691,7 @@ spline-viewer::part(controls) {
 
 .arch-description p {
     color: var(--text-muted);
-    font-size: 0.95rem;
+    font-size: 1.3rem;
     line-height: 1.7;
 }
 
@@ -699,11 +699,12 @@ spline-viewer::part(controls) {
    PROJECTS
    ============================================ */
 .projects-section-label {
-    font-size: 0.75rem;
+    font-size: 0.95rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: var(--text-dim);
     margin-bottom: 1rem;
+    margin-top: 1.2rem;
     font-family: "Share Tech Mono", monospace;
 }
 
@@ -796,7 +797,7 @@ spline-viewer::part(controls) {
 .browser-dots span:nth-child(3) { background: #22c55e; }
 
 .browser-url {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     color: var(--text-dim);
     background: rgba(255, 255, 255, 0.03);
     padding: 0.15rem 0.6rem;
@@ -827,14 +828,14 @@ spline-viewer::part(controls) {
 }
 
 .project-title {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
     color: var(--text);
 }
 
 .project-desc {
-    font-size: 0.85rem;
+    font-size: 1.2rem;
     color: var(--text-muted);
     line-height: 1.6;
     margin-bottom: 0.8rem;
@@ -847,7 +848,7 @@ spline-viewer::part(controls) {
 }
 
 .project-tag {
-    font-size: 0.72rem;
+    font-size: 0.92rem;
     padding: 0.2rem 0.55rem;
     border-radius: 999px;
     background: var(--purple-subtle);
@@ -899,7 +900,7 @@ spline-viewer::part(controls) {
 
 .timeline-year {
     display: inline-block;
-    font-size: 0.75rem;
+    font-size: 1rem;
     color: var(--purple-light);
     margin-bottom: 0.3rem;
     font-family: "Share Tech Mono", monospace;
@@ -907,13 +908,13 @@ spline-viewer::part(controls) {
 }
 
 .timeline-content h4 {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 0.3rem;
 }
 
 .timeline-content p {
-    font-size: 0.88rem;
+    font-size: 0.98rem;
     color: var(--text-muted);
     line-height: 1.6;
 }
@@ -933,7 +934,7 @@ spline-viewer::part(controls) {
 
 .personal-content p {
     color: var(--text-muted);
-    font-size: 1rem;
+    font-size: 1.4rem;
     line-height: 1.7;
 }
 
@@ -960,7 +961,7 @@ footer {
 }
 
 .footer-col h4 {
-    font-size: 0.8rem;
+    font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--text-dim);
@@ -971,7 +972,7 @@ footer {
     display: block;
     color: var(--text-muted);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     margin-bottom: 0.4rem;
     transition: color var(--transition);
 }
@@ -983,7 +984,7 @@ footer {
 .footer-text {
     display: block;
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 1.2rem;
 }
 
 .footer-username {
